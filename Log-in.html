@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log In</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Adding Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.1/css/bootstrap.min.css">
+  <!-- Offline Bootstrap files just in case there's no internet -->
+  <link rel="stylesheet" href="bootstrap-5.2.1-dist/css/bootstrap.min.css">
+</head>
+<body id="log-in">
+  <div class="container mt-5" id="cntnt">
+    <h1>Log In</h1>
+    <form id="LogInForm" method="post" action="login.php">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <!-- Hidden input field for role -->
+      <input type="hidden" name="role" id="role" value="">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="userCheckbox" name="userCheckbox">
+        <label class="form-check-label" for="userCheckbox">Log in as User</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="agentCheckbox" name="agentCheckbox">
+        <label class="form-check-label" for="agentCheckbox">Log in as Agent</label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Log In</button>
+      <br>
+      <a href="sign-in.html" onclick="navigateToSignUp()">I will create a new user</a>
+    </form>
+  </div>
+
+  <!-- Add Bootstrap JS and jQuery scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+
+  <!-- Add the JavaScript code -->
+  <script>
+    function navigateToSignUp() {
+      window.location.href = 'sign-in.html';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const signInForm = document.getElementById('LogInForm');
+      const userCheckbox = document.getElementById('userCheckbox');
+      const agentCheckbox = document.getElementById('agentCheckbox');
+
+      // Add event listeners to checkboxes
+      userCheckbox.addEventListener('change', function () {
+        if (userCheckbox.checked) {
+          agentCheckbox.checked = false; // Uncheck the agent checkbox
+          document.getElementById('role').value = '0'; // Set value to '0' for User
+        }
+      });
+
+      agentCheckbox.addEventListener('change', function () {
+        if (agentCheckbox.checked) {
+          userCheckbox.checked = false; // Uncheck the user checkbox
+          document.getElementById('role').value = '1'; // Set value to '1' for Agent
+        }
+      });
+
+      signInForm.addEventListener('submit', function (event) {
+        // Rest of the code for form submission...
+      });
+    });
+  </script>
+</body>
+</html>

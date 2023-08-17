@@ -1,0 +1,12 @@
+/* Add custom styles as needed */
+.container {
+  max-width: 400px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-check {
+  margin-bottom: 10px;
+}

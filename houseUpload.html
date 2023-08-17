@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>House Information Form</title>
+  <!-- Css stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Adding Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-5.2.1-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1>UPLOAD A NEW HOUSE</h1>
+    <form id="houseForm" method="post" action="save_data.php" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location (Click to choose):</label>
+        <select class="form-control" id="location" name="location" required>
+          <option value="Nairobi">Nairobi</option>
+          <option value="Kiambu">Kiambu</option>
+          <option value="Machakos">Machakos</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="houseType">House Type (Click to choose):</label>
+        <select class="form-control" id="houseType" name="houseType" required>
+          <option value="Single Room">Single Room</option>
+ <option value="Bedsitter">Bedsitter</option>
+ <option value="One Bedroom">One_Bedroom</option>
+ <option value="Two Bedroom">Two_Bedroom</option>
+ <option value="Three Bedroom">Three_Bedroom</option>
+ <option value="Four Bedroom">Four_Bedroom</option>
+ <option value="Five Bedroom">Five_Bedroom</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rent">Rent Amount (In Kenya Shillings):</label>
+        <textarea class="form-control" id="rent" name="rent" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="details">Details:</label>
+        <textarea class="form-control" id="details" name="details" rows="4" required></textarea>
+      </div>
+
+      <!-- Carousel to preview uploaded images -->
+      <div class="container">
+        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="" alt="Image 1" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+              <img src="" alt="Image 2" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+              <img src="" alt="Image 3" class="d-block w-100">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#imageCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#imageCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- File Input for Image Upload -->
+      <div class="form-group mt-3">
+        <label for="image1Upload">Choose Image 1:</label>
+        <input type="file" class="form-control-file" id="image1Upload" name="image1Upload">
+      </div>
+      <div class="form-group mt-3">
+        <label for="image2Upload">Choose Image 2:</label>
+        <input type="file" class="form-control-file" id="image2Upload" name="image2Upload">
+      </div>
+      <div class="form-group mt-3">
+        <label for="image3Upload">Choose Image 3:</label>
+        <input type="file" class="form-control-file" id="image3Upload" name="image3Upload">
+      </div>
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Submit</button>
+<br>
+      <!-- Log Out Button -->
+      <a href="logout.php" class="btn btn-danger mt-3">Log Out</a>
+      <!-- Prompt for success or failure message -->
+      <?php if (isset($_SESSION['house_added'])): ?>
+        <div class="alert alert-<?php echo $_SESSION['house_added']['status']; ?> mt-3">
+          <?php echo $_SESSION['house_added']['message']; ?>
+        </div>
+        <?php unset($_SESSION['house_added']); ?>
+      <?php endif; ?>
+
+    </form>
+  </div>
+  <!-- Bootstrap JS and jQuery scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript to update carousel images on file input change -->
+  <script>
+    const imageInputs = document.querySelectorAll('[type="file"]');
+    const carouselImages = document.querySelectorAll('#imageCarousel img');
+
+    imageInputs.forEach((input, index) => {
+      input.addEventListener('change', function () {
+        const selectedImage = this.files[0];
+        if (selectedImage) {
+          carouselImages[index].src = URL.createObjectURL(selectedImage);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

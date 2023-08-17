@@ -1,0 +1,130 @@
+/* Apply a common font family to the entire body */
+body {
+  font-family: 'FontAwesome', cursive, sans-serif;
+  color: white;
+}
+
+/* Use a different font family for h2 headings */
+h2, h3 {
+  font-family: 'Money Honey', cursive;
+}
+
+/* Landing page styling*/
+.landing {
+  display: flex; /* Add flexbox to the landing container */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center; /* Align items vertically in the center */
+  align-items: center; /* Align items horizontally in the center */
+  background-image: url("Images/Huts.jpg");
+  background-size: cover; /* Ensure the background covers the entire element */
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  background-position: center center; /* Center the background image */
+  width: 100vw;
+  height: 100vh;
+}
+
+/*Just the text on the landing page*/
+.landing-text {
+  color: white;
+  text-align: center;
+  padding: 20px; /* Add some padding for better readability */
+  width: 50vw;
+  margin-bottom: 20px; /* Add margin at the bottom to separate from buttons */
+}
+
+/*For the visible parts of the landing page*/
+.visible{
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  backdrop-filter: blur(10px); /* Modern browsers with backdrop-filter support */
+  z-index: 9999; /* Make sure the overlay is above other content */
+}
+
+/* Align buttons to the right within the landing buttons section */
+.landing-buttons {
+  text-align: center;
+  padding: 20px; /* Add some padding for better readability */
+  margin: 5px;
+  position: relative;
+}
+
+/* Styles for the carousel container */
+.container {
+  max-width: 800px;
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Center carousel items horizontally */
+.carousel-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* Adjust the size and positioning of carousel images */
+.carousel-item img {
+  max-width: 300px; /* Make sure images fit within the container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the entire container with the image */
+  object-position: center center; /* Center the image */
+}
+
+/* Style for dividing the homepage into columns */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/*Styling for buttons*/
+.btn{
+  margin: 5px;
+  background color: #1e2601;
+}
+
+/* styles for the Log-In and Sign-In page Page*/
+#log-in{
+  background-image: url(Images/log.jpg)
+}
+
+/*Profile Picture styling*/
+.profile {
+  max-width: 150px;
+  max-height: 150px;
+  border: 2px solid black;
+  }
+.pPic{
+  max-width: 300px;
+  margin-left: 200 px;
+}
+
+
+
+#cntnt{
+  background: #acfffc;
+}
+#cntnt2{
+  background: #deffbe;
+}
+
+#cntnt, #cntnt2{
+  backdrop-filter: blur(10px); /* Modern browsers with backdrop-filter support */
+  z-index: 9999;
+  width: 50vw;
+  height:100vw;
+  align-items: right;
+
+  h1, h2, h3{
+    margin: 5px;
+  }
+}
+
+
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-check {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-5.2.1-dist/css/bootstrap.min.css">
+</head>
+<body id="log-in">
+  <div class="container mt-5" id="cntnt2">
+    <h1>CREATE A NEW USER ACCOUNT TO CONTINUE</h1>
+    <br>
+    <h3>It won't take too long</h3>
+
+    <br>
+
+    <div class="text-center">
+      <img src="profile.jpg" alt="Profile Image" class="img-fluid mb-3 profile">
+      <input type="file" accept="image/*" id="imageInput" class="form-control pPic">
+    </div>
+    <br>
+
+    <form id="SignInForm" method="post" action="process_signup.php">
+      <div class="form-group">
+        <label for="fName">First Name:</label>
+        <input type="text" class="form-control" id="fName" name="fName" required>
+        <small id="fNameError" class="form-text text-danger"></small>
+      </div>
+      <div class="form-group">
+        <label for="lName">Last Name:</label>
+        <input type="text" class="form-control" id="lName" name="lName" required>
+        <small id="lNameError" class="form-text text-danger"></small>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" class="form-control" id="phone" name="phone" required>
+        <small id="phoneError" class="form-text text-danger"></small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+        <small id="emailError" class="form-text text-danger"></small>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+        <small id="passwordError" class="form-text text-danger"></small>
+      </div>
+      <div class="form-group">
+        <label for="password2">Repeat Password:</label>
+        <input type="password" class="form-control" id="password2" name="password2" required>
+        <small id="password2Error" class="form-text text-danger"></small>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="userCheckbox" name="userCheckbox">
+        <label class="form-check-label" for="userCheckbox">I want to Find a house (I'm a User)</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="agentCheckbox" name="agentCheckbox">
+        <label class="form-check-label" for="agentCheckbox">I want to post available houses (I'm an Agent)</label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Create My Account</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+  <script src="bootstrap-5.2.1-dist\js\bootstrap.min.js"></script>
+
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const profileImage = document.querySelector('img');
+
+    imageInput.addEventListener('change', function (event) {
+      const selectedImage = event.target.files[0];
+      if (selectedImage) {
+        profileImage.src = URL.createObjectURL(selectedImage);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const signInForm = document.getElementById('SignInForm');
+      const userCheckbox = document.getElementById('userCheckbox');
+      const agentCheckbox = document.getElementById('agentCheckbox');
+      const fNameError = document.getElementById('fNameError');
+      const lNameError = document.getElementById('lNameError');
+      const phoneError = document.getElementById('phoneError');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const password2Error = document.getElementById('password2Error');
+
+      userCheckbox.addEventListener('change', function () {
+        if (userCheckbox.checked) {
+          agentCheckbox.checked = false; // Uncheck the agent checkbox
+        }
+      });
+
+      agentCheckbox.addEventListener('change', function () {
+        if (agentCheckbox.checked) {
+          userCheckbox.checked = false; // Uncheck the user checkbox
+        }
+      });
+
+      signInForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission for this example
+
+        // Reset error messages
+        fNameError.textContent = '';
+        lNameError.textContent = '';
+        phoneError.textContent = '';
+        emailError.textContent = '';
+        passwordError.textContent = '';
+        password2Error.textContent = '';
+
+        // Rest of the form submission code...
+
+        // Assuming the form submission is successful
+        // Replace the following alert with your preferred message box/modal
+        alert('New User Created.');
+      });
+    });
+  </script>
+</body>
+</html>

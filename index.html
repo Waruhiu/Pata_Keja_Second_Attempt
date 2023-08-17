@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Pata Keja Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-5.2.1-dist/css/bootstrap.min.css">
+</head>
+<body class="landing">
+  <div class="visible">
+    <div class="landing-text">
+      <h1>PATA KEJA</h1>
+      <h3>CONNECTING YOU TO YOUR NEXT ABODE</h3>
+      <br>
+      <br>
+      <p>With just a few button clicks, you can find your next rental house in
+         Nairobi, Machakos, or Kiambu county by clicking a button. You can also make
+         the next person's house hunting experience easier by posting a vacant house
+         that you know about</p>
+      <p>You need an account to proceed</p>
+    </div>
+    <div class="landing-buttons">
+      <!-- Use onclick attribute to call a JavaScript function -->
+      <button type="button" class="btn btn-primary" onclick="navigateToLogin()">I have an account</button>
+      <br>
+      <button type="button" class="btn btn-primary" onclick="navigateToSignUp()">I don't have an account</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript functions to navigate to respective pages
+    function navigateToLogin() {
+      window.location.href = 'Log-in.html';
+    }
+
+    function navigateToSignUp() {
+      window.location.href = 'sign-in.html';
+    }
+  </script>
+</body>
+</html>
